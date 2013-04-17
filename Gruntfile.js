@@ -18,11 +18,12 @@ module.exports = function (grunt) {
     uglify: {
       options: {
         preserveComments: false,
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
+        banner: '/*\n<%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
                 '<%= grunt.template.today("m/d/yyyy") %>\n' +
+                '<%= pkg.description %>\n' +
                 '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-                '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-                ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n'
+                'Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+                ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> \n*/\n'
       },
       build: {
         src: 'jquery.xortable.js',
