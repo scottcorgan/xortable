@@ -1,7 +1,7 @@
 {
   "name": "xortable",
-  "version": "0.3.0",
-  "description": "jQuery plugin for sortable horiztonal lists. Fast, light-weight (3kb), and horizontal.",
+  "version": "0.3.2",
+  "description": "jQuery plugin for sortable horiztonal lists. Fast, light-weight (less than 1kb gzipped), and horizontal.",
   "main": "xortable.js",
   "repository": {
     "type": "git",
