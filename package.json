@@ -1,0 +1,29 @@
+{
+  "name": "xortable",
+  "version": "0.1.0",
+  "description": "Sortable horiztonal lists. Fast, light-weight, and horizontal.",
+  "main": "xortable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottcorgan/xortable.git"
+  },
+  "keywords": [
+    "tab",
+    "sortable",
+    "jquery",
+    "sorting",
+    "drag",
+    "drop"
+  ],
+  "author": "Scott Corgan",
+  "license": "BSD",
+  "gitHead": "75144e15d63283ca0c6e1476397bb1596a8b5c75",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-uglify": "~0.2.0"
+  }
+}
