@@ -1,4 +1,5 @@
 ;(function ( $, document, undefined ) {
+  'use strict';
   
   var pluginName = "xortable";
   var defaults = {
