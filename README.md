@@ -50,3 +50,23 @@ $('.tabs').xortable({
 ```
 
 ## Xortable Options
+
+### dragStart
+
+Callback function each time an item starts to be dragged. The callback function is provided the tab in action as the first argument.
+
+```javascript
+dragStart: function ($tab) {
+  // $tab is a the tab in action as a jQuery object
+}
+```
+
+### dragEnd
+
+Callback function each time an item has been dragged and dropped. The callback function is provided the tab in action as the first argument.
+
+```javascript
+dragEnd: function ($tab) {
+  // $tab is a the tab in action as a jQuery object
+}
+```
