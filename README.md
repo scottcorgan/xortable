@@ -1,6 +1,6 @@
 # Xortable
 
-jQuery plugin for sortable horiztonal lists. Fast, light-weight, and horizontal.
+jQuery plugin for sortable horiztonal lists. Fast, light-weight (3kb), and horizontal.
 
 ## Install
 
