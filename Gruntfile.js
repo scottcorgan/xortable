@@ -14,21 +14,25 @@ module.exports = function (grunt) {
       options: {
         jshintrc: '.jshintrc'
       }
+    },
+    uglify: {
+      options: {
+        preserveComments: false,
+        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
+                '<%= grunt.template.today("m/d/yyyy") %>\n' +
+                '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+                '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+                ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n'
+      },
+      build: {
+        src: 'jquery.xortable.js',
+        dest: 'jquery.xortable-<%= pkg.version %>.min.js'
+      }
     }
-    // uglify: {
-    //   options: {
-    //     banner: '/*! <%= pkg.name %> v<%= pkg.version %> | <%= pkg.license %> */\n'
-    //   },
-    //   build: {
-    //     src: 'jquery.cookie.js',
-    //     dest: 'build/jquery.cookie-<%= pkg.version %>.min.js'
-    //   }
-    // }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  // grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['jshint']);
-  // grunt.registerTask('ci', ['default']);
+  grunt.registerTask('default', ['jshint', 'uglify']);
 };

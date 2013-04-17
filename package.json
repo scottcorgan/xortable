@@ -1,11 +1,8 @@
 {
   "name": "xortable",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Sortable horiztonal lists. Fast, light-weight, and horizontal.",
   "main": "xortable.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/scottcorgan/xortable.git"
@@ -18,8 +15,9 @@
     "drag",
     "drop"
   ],
+  "readmeFilename": "README.md",
   "author": "Scott Corgan",
-  "license": "BSD",
+  "license": "MIT",
   "gitHead": "75144e15d63283ca0c6e1476397bb1596a8b5c75",
   "devDependencies": {
     "grunt": "~0.4.1",

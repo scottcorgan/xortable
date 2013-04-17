@@ -1,4 +1,4 @@
-;(function ( $, document, undefined ) {
+;(function ($, document, undefined) {
   'use strict';
   
   var pluginName = "xortable";
@@ -177,4 +177,4 @@
     });
   };
 
-})( jQuery, document );
+})(jQuery, document);

@@ -1,0 +1,23 @@
+{
+    "name"         : "xortable",
+    "version"      : "0.3.0",
+    "description"  : "Sortable horiztonal lists. Fast, light-weight, and horizontal.",
+    "main"         : ["./jquery.xortable.js"],
+    "homepage"     : "https://github.com/scottcorgan/xortable",
+    "dependencies" : {
+        "jquery" : ">= 1.9.x"
+    },
+    "keywords"     : [
+        "sortable",
+        "jquery",
+        "drag",
+        "drop"
+    ],
+    "author" : {
+        "name" : "Scott Corgan",
+        "web"  : "http://github.com/scottcorgan"
+    },
+    "license": [
+        "http://www.opensource.org/licenses/mit-license.php"
+    ]
+}
