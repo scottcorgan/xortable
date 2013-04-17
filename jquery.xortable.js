@@ -65,7 +65,7 @@
         // Dragging actually happens on these events
         $body.on('mousemove', $.proxy(this._dragTab, this));
         $doc.one('mouseup', $.proxy(function () {
-          this._cleanup()
+          this._cleanup();
           
           // Callback for 'dragEnd'
           this.options.dragEnd($draggingElement);
@@ -115,10 +115,11 @@
       var $movingEl;
       var resetTabEl = false;
       var point = 0;
+      var idx = 0;
 
       // RIGHT
       if (this.dragDirection === 'right' && this.draggedIdx < (this._triggerPoints.length -1)) {
-        var idx = this.draggedIdx + 1;
+        idx = this.draggedIdx + 1;
         point = this._triggerPoints[idx].left;
         
         if (elCenter > point) {
@@ -131,7 +132,7 @@
       
       // LEFT
       if (this.draggedIdx > 0){
-        var idx = this.draggedIdx - 1;
+        idx = this.draggedIdx - 1;
         point = this._triggerPoints[idx].right;
         
         if (elCenter < point) {
@@ -150,8 +151,12 @@
     },
     
     setDragDirection: function (currentX, previousX) {
-      if (currentX >= previousX) { this.dragDirection = 'right'; }
-      else{ this.dragDirection = 'left' }
+      if (currentX >= previousX) {
+        this.dragDirection = 'right';
+      }
+      else{
+        this.dragDirection = 'left';
+      }
     },
     
     setSelectable: function (isSelectable) {
