@@ -31,14 +31,45 @@
   Xortable.prototype = {
 
     init: function() {
-      this.$children = this.$element.children();
-      this.setSelectable(false);
-      this.$children.on('mousedown', $.proxy(this._childMouseDownHandler, this));
-      
-      this.$element.addClass('xortable-parent');
-      this.$children.addClass('xortable-child');
+      this._bindActions();
+      this.$element.on('DOMNodeInserted', $.proxy(this._bindActions, this));
     },
     
+    _bindActions: function (e) {
+      
+      // Remove previous events
+      if (this.$children && this.$children.length) {
+        this.$children.off('mousedown', this._prepEvetns);
+      }
+      
+      this.$children = this.$element.children();
+      this.setSelectable(false);
+      this.$element.addClass('xortable-parent');
+      this.$children.addClass('xortable-child'); 
+      
+      this.$children.on('mousedown', $.proxy(this._prepEvetns, this));
+    },
+    
+    // Needed to allow outside events to pass through.
+    // Because of this, I needed a way to only attach events
+    // if the user started dragging the tab.
+    //
+    // Probably needs to be refactored at some point.
+    _prepEvetns: function (e) {
+      var $el = $(e.currentTarget);
+      var self = this;
+      
+      $el.one('mousemove', function (e) {
+        self._childMouseDownHandler(e);
+      });
+      
+      $el.one('mouseup', function () {
+        $el.off('mousemove');
+      });
+    },
+    
+    // Once the user has clicked and started to drag the itme,
+    // we do the magic here.
     _childMouseDownHandler: function (e) {
       var $draggingElement = $(e.currentTarget);
       
@@ -51,12 +82,12 @@
       this.$draggedPH = this.$dragged.clone();
       this.draggedIdx = this.$children.index(this.$dragged);
       this.dragOffset = e.pageX - e.currentTarget.offsetLeft;
-      
+
       this.$dragged.css({visibility: 'hidden'}).addClass('xortable-dragged');
       this.$draggedPH.
         appendTo(this.$element).
         attr('data-draggable-item', true).
-        addClass('xortable-dragged-placehoder').
+        addClass('xortable-dragged-placeholder').
         css({
           position: 'absolute',
           left: e.pageX - this.dragOffset
@@ -65,6 +96,7 @@
         // Dragging actually happens on these events
         $body.on('mousemove', $.proxy(this._dragTab, this));
         $doc.one('mouseup', $.proxy(function () {
+          $draggingElement.mouseup();
           this._cleanup();
           
           // Callback for 'dragEnd'
@@ -74,11 +106,18 @@
     
     _resetTriggerPoints: function () {
       var self = this;
+      // var parentOffset = this.$element.offset();
       this._triggerPoints = [];
       
       this.$children.each(function (idx) {
         var $el = $(this);
-        var offset = $el.offset();
+        
+        // Ignore our placeholder
+        if ($el.attr('data-draggable-item')) {
+          return;
+        }
+        
+        var offset = $el.position();
         var left = offset.left;
         var right = offset.left + $el.width();
         

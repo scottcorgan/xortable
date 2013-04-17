@@ -27,7 +27,7 @@ module.exports = function (grunt) {
       },
       build: {
         src: 'jquery.xortable.js',
-        dest: 'jquery.xortable-<%= pkg.version %>.min.js'
+        dest: 'jquery.xortable.min.js'
       }
     }
   });
