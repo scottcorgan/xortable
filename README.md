@@ -2,6 +2,19 @@
 
 jQuery plugin for sortable horiztonal lists. Fast, light-weight (less than 1kb gzipped), and horizontal.
 
+## Demo
+
+[Play with a demo on Codepen](http://codepen.io/scottcorgan/pen/AGvJt)
+
+[![Screen Shot 2013-04-17 at 10 55 15 AM](https://f.cloud.github.com/assets/974723/392841/002f8046-a788-11e2-9d9e-3e7428912828.png)](http://codepen.io/scottcorgan/pen/AGvJt)
+
+## Browser Support
+
+* Chrome
+* Firefox 4+
+* Safari 5+
+* IE 9+???
+
 ## Install
 
 ```
